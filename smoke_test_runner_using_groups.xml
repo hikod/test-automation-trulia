@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Trulia automated smoke tests " verbose="2">
+	<test name="Smoke test">
+		<groups>
+			<run>
+				<include name="smoke"></include>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.trulia.tests."></class>
+			<class name="com.trulia.tests."></class>
+		</classes>
+	</test>
+</suite>
