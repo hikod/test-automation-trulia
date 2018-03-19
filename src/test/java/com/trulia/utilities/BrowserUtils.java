@@ -31,7 +31,6 @@ public class BrowserUtils {
 		return elemTexts;
 	}
 
-
 	public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
 		WebDriverWait wait = new WebDriverWait(driver, timeToWaitInSec);
 		return wait.until(ExpectedConditions.visibilityOf(element));
