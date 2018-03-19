@@ -8,8 +8,7 @@
 			</run>
 		</groups>
 		<classes>
-			<class name="com.trulia.tests."></class>
-			<class name="com.trulia.tests."></class>
+			<class name="com.trulia.tests.SmokeTest"></class>
 		</classes>
 	</test>
 </suite>

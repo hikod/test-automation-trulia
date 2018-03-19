@@ -21,7 +21,7 @@ public class SearchTest extends TestBase{
 	 * User Story As a user I should be able to choose Homes for Sale from Buy
 	 * module and choose min and max price range from Any Price
 	 */
-	@Test
+	@Test (groups = "functional")
 	public void BuyModuleHomesForSale() throws InterruptedException {
 		// open Home page www.trulia.com
 		HomePage homePage = new HomePage(driver);

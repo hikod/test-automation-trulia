@@ -1,16 +1,15 @@
 package com.trulia.tests;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-import org.openqa.selenium.By;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.trulia.pages.CrimePage;
@@ -19,12 +18,24 @@ import com.trulia.pages.MiamiBeachRecentlySoldHomesPage;
 import com.trulia.pages.RecentlySoldHomesPage;
 import com.trulia.utilities.BrowserUtils;
 import com.trulia.utilities.ConfigurationReader;
+import com.trulia.utilities.Driver;
 import com.trulia.utilities.TestBase;
 
 public class LoginTest extends TestBase {
+	@BeforeMethod(alwaysRun = true)
+	public void setUp() {
+		driver = Driver.getDriver();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.get(ConfigurationReader.getProperty("url"));
+	}
+
+	@AfterMethod(alwaysRun = true)
+	public void tearDown() {
+		Driver.closeDriver();
+	}
 
 	// Test Case 2 - Iliyar
-	@Test(priority = 2)
+	@Test(priority = 2,groups = "functional")
 	public void homePageBuyRecentlySold() throws InterruptedException {
 		// create object from HomePage class:
 		HomePage homePage = new HomePage(driver);
@@ -54,7 +65,7 @@ public class LoginTest extends TestBase {
 	}
 
 	//Test Case 3 - Christos
-	@Test(priority = 3)
+	@Test(priority = 3,groups = "functional")
 	public void signInTest() throws InterruptedException {
 		// create object from HomePage class:
 		HomePage homePage = new HomePage(driver);
@@ -87,7 +98,7 @@ public class LoginTest extends TestBase {
 	}
 
 	// Test Case 4 - Hikmet
-	@Test(priority = 4)
+	@Test(priority = 4,groups = "functional")
 	public void homePageBuyNewHomes() {
 		// create object from HomePage class:
 		HomePage homePage = new HomePage(driver);
@@ -120,7 +131,7 @@ public class LoginTest extends TestBase {
 	/*
 	 * dont forget to change the method name from homePageTitle to homePageCrimeTest
 	 */
-	@Test(priority = 5)
+	@Test(priority = 5,groups = "functional")
 	public void homePageTitle() {
 
 		// create object from HomePage class:
@@ -144,22 +155,22 @@ public class LoginTest extends TestBase {
 
 	}
 
-	@Test(priority = 6)
-	public void TC006() {
-		// create object from HomePage class:
-		HomePage homePage = new HomePage(driver);
-
-		// verify at page
-		assertTrue(homePage.isAt());
-		System.out.println(driver.getTitle());
-		
-		//clearing the search box and entering the Schaumburg, IL in the search box
-		homePage.searchBar.clear();
-		homePage.searchBar.sendKeys("Schaumburg, IL");
-		homePage.searchButton.click();
-		//Verifying the title is "Schaumburg, IL Open Houses | Trulia"
-		BrowserUtils.switchToWindow("Schaumburg, IL Real Estate & Homes For Sale | Trulia");
-		BrowserUtils.waitForPageToLoad(20);
-		assertEquals(driver.getTitle(), "Schaumburg, IL Real Estate & Homes For Sale | Trulia");
-	}
+//	@Test(priority = 6,groups = "functional")
+//	public void TC006() {
+//		// create object from HomePage class:
+//		HomePage homePage = new HomePage(driver);
+//
+//		// verify at page
+//		assertTrue(homePage.isAt());
+//		System.out.println(driver.getTitle());
+//		
+//		//clearing the search box and entering the Schaumburg, IL in the search box
+//		homePage.searchBar.clear();
+//		homePage.searchBar.sendKeys("Schaumburg, IL");
+//		homePage.searchButton.click();
+//		//Verifying the title is "Schaumburg, IL Open Houses | Trulia"
+//		BrowserUtils.switchToWindow("Schaumburg, IL Real Estate & Homes For Sale | Trulia");
+//		BrowserUtils.waitForPageToLoad(20);
+//		assertEquals(driver.getTitle(), "Schaumburg, IL Real Estate & Homes For Sale | Trulia");
+//	}
 }

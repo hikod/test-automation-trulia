@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Trulia automated functional tests " verbose="2">
+	<test name="Functional test">
+		<groups>
+			<run>
+				<include name="functional"></include>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.trulia.tests.LoginTest"></class>
+			<class name="com.trulia.tests.SearchTest"></class>
+		</classes>
+	</test>
+</suite>
