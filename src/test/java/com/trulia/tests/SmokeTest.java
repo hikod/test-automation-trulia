@@ -52,6 +52,7 @@ public class SmokeTest extends TestBase {
 		login.searchBar.sendKeys("Baltimore");
 		login.searchButton.click();
 		BrowserUtils.switchToWindow("Baltimore, MD Homes For Sale & Real Estate");
+		BrowserUtils.waitForPageToLoad(20);
 		assertEquals(driver.getTitle(), "Baltimore, MD Real Estate & Homes For Sale | Trulia");
 
 	}
