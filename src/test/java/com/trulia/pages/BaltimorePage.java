@@ -5,11 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.trulia.utilities.Driver;
+
 public class BaltimorePage {
+
 	private WebDriver driver;
 
-	public BaltimorePage(WebDriver driver) {
-		this.driver = driver;
+	public BaltimorePage() {
+		this.driver = Driver.getDriver();
 		PageFactory.initElements(driver, this);
 	}
 	

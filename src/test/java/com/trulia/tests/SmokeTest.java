@@ -31,7 +31,7 @@ public class SmokeTest extends TestBase {
 
 	@Test(priority = 1, groups = "smoke")
 	public void signInTest() {
-		HomePage home = new HomePage(driver);
+		HomePage home = new HomePage();
 		home.signInButton.click();
 		System.out.println(home.signInText.getText());
 		assertEquals(home.signInText.getText(), "Sign in or register\n" + "to save your favorite homes");
@@ -47,7 +47,7 @@ public class SmokeTest extends TestBase {
 
 	@Test(priority = 2, groups = "smoke")
 	public void searchFunctionality() {
-		LoginPage login = new LoginPage(driver);
+		LoginPage login = new LoginPage();
 		login.searchBar.clear();
 		login.searchBar.sendKeys("Baltimore");
 		login.searchButton.click();
@@ -60,7 +60,7 @@ public class SmokeTest extends TestBase {
 	@Test(priority = 3, groups = "smoke")
 	public void choosingTest() {
 
-		BaltimorePage baltimore = new BaltimorePage(driver);
+		BaltimorePage baltimore = new BaltimorePage();
 		baltimore.allBeds.click();
 		baltimore.bedNumber.click();
 		baltimore.homeType.click();
@@ -74,7 +74,7 @@ public class SmokeTest extends TestBase {
 
 	@Test(priority = 4, groups = "smoke")
 	public void logOutTest() {
-		BaltimorePage baltimore = new BaltimorePage(driver);
+		BaltimorePage baltimore = new BaltimorePage();
 		Actions actions = new Actions(driver);
 		actions.moveToElement(baltimore.fastFurious).perform();
 		baltimore.logOut.click();

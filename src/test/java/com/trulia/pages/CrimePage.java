@@ -3,12 +3,14 @@ package com.trulia.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import com.trulia.utilities.Driver;
+
 public class CrimePage {
 
 	private WebDriver driver;
 
-	public CrimePage(WebDriver driver) {
-		this.driver = driver;
+	public CrimePage() {
+		this.driver = Driver.getDriver();
 		PageFactory.initElements(driver, this);
 	}
 

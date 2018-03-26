@@ -30,7 +30,7 @@ public class Driver {
 				driver = new FirefoxDriver();
 			}
 		}
-	//	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
 		return driver;
 	}
 

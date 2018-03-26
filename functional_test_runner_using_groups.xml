@@ -10,6 +10,7 @@
 		<classes>
 			<class name="com.trulia.tests.LoginTest"></class>
 			<class name="com.trulia.tests.SearchTest"></class>
+			<class name="com.trulia.tests.AikaTestCases"></class>
 		</classes>
 	</test>
 </suite>
